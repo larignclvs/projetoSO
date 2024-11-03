@@ -27,4 +27,5 @@ Larissa Gonçalves  RA: 22.222.
 ## FIFO   
 - Executar o programa
 - Inserir o tamanho da memória
-- Inserir sequêcia de páginas acessadas separadas por ESPAÇO
+- Inserir sequêcia de páginas acessadas separadas por vírgula e sem espaço
+- O programa retorna o estado atual e a quantidade de hits e miss rates.
