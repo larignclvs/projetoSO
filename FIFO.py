@@ -1,27 +1,26 @@
-memory = []
-hits = 0
-misses = 0
-memory_size = int(input("Tamanho da memória: "))
-page_sequence = input("Sequência de páginas (separadas por vírgula): ").split(',')
+# FIFO
+
+memory = [] #lista onde armazenaremos as páginas na memória
+hits = 0 #contador de acessos onde a pagina já estava na memória
+misses = 0 #contadir de acessos onde a página nãoo estava na memória
+memory_size = int(input("Tamanho da memória: ")) #tamanho da memória física
+page_sequence = input("Sequência de páginas: ").split(' ') #recebe sequência de acesso
 page_sequence = [page.strip() for page in page_sequence if page.strip()]
 
-print("Página solicitada | Status")
-for page in page_sequence:
+for page in page_sequence: #lê a sequência de páginas 
     print(f"{page} |", end=" ")
 
     if page in memory: 
-        print("Hit")
+        print("Hit") # se já estiver na memória, um hit é incrementado
         hits += 1
     else:
         print("Miss")
-        misses += 1
+        misses += 1 # senão, um miss é incrementado
         
         if len(memory) >= memory_size:
-            memory.pop(0)  
+            memory.pop(0)  #se o tamanho limite da memória tiver sido atingido, remove a página mais antiga.
         memory.append(page)  
-
-if hits + misses > 0:
-    hit_rate = hits / (hits + misses) * 100
-    miss_rate = misses / (hits + misses) * 100
-    print(f"Hit rate: {hit_rate:.2f}%")
-    print(f"Miss rate: {miss_rate:.2f}%")
+        
+print("Total: ", (hits + misses))
+print("Hit rate:", hits, "/", (hits + misses))
+print("Miss rate:", misses, "/", (hits + misses))
