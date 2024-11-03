@@ -19,9 +19,9 @@ for page in page_sequence:
     for p in memory:
         print(f"[{p:^3}]")
     for _ in range(memory_size - len(memory)):
-        print("[-1]")
+        print("[-1]") #representa pagina vazia 
     print(f"\n[ {page} ] <- ({status})\n")
 
-total_accesses = hits + misses
-print(f"Hit rate ({hits}/{total_accesses}):")
+total_accesses = hits + misses #tota de acessos
+print(f"Hit rate ({hits}/{total_accesses}):") 
 print(f"Miss rate ({misses}/{total_accesses}):")
